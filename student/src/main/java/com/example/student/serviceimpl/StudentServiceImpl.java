@@ -4,14 +4,15 @@ import com.example.student.entities.Student;
 import com.example.student.repository.StudentRepository;
 import com.example.student.service.StudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
 public class StudentServiceImpl implements StudentService {
 
+    @Autowired
     private StudentRepository studentRepository;
 
     @Override
@@ -33,7 +34,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student findByStudentNumber(long studentNumber) {
+    public Student findByStudentNumber(int studentNumber) {
         return studentRepository.findByStudentNumber(studentNumber);
     }
 

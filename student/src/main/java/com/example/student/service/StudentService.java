@@ -9,6 +9,6 @@ public interface StudentService {
     Student findByMaximumMarks(int totalMarks);
     Student saveOrUpdateStudent(Student student);
     void deleteStudentById(String id);
-    Student findByStudentNumber(long studentNumber);
+    Student findByStudentNumber(int studentNumber);
     List<Student> findByYear(int yearOfStudying);
 }

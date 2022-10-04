@@ -26,7 +26,7 @@ public class StudentRestController {
     }
 
     @GetMapping(value = "/byStudentNumber/{studentNumber}")
-    public Student getStudentByStudentNumber(@PathVariable("studentNumber")Long studentNumber){
+    public Student getStudentByStudentNumber(@PathVariable("studentNumber")int studentNumber){
         return studentService.findByStudentNumber(studentNumber);
     }
 
@@ -37,7 +37,7 @@ public class StudentRestController {
     }
 
     @DeleteMapping(value = "/delete/{studentNumber}")
-    public ResponseEntity<?> deleteStudentByStudentNumber(@PathVariable long studentNumber) {
+    public ResponseEntity<?> deleteStudentByStudentNumber(@PathVariable int studentNumber) {
         studentService.deleteStudentById(studentService.findByStudentNumber(studentNumber).getId());
         return new ResponseEntity("Student deleted",HttpStatus.OK);
     }

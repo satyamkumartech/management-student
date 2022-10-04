@@ -11,7 +11,7 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     List<Student> findAllByOrderMarks(int totalMarks);
     Student findByPassFail(String passStatus);
     Student findHighestMarks(int totalMarks);
-    Student findByStudentNumber(long studentNumber);
+    Student findByStudentNumber(int studentNumber);
     List<Student> findByYear(int yearOfStudying);
 
 }
