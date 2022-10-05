@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface SubjectService {
     List<Subjects> findAllMarks();
-
     Subjects findByStudentNumber(int studentNumber);
-
-    Subjects saveOrUpdateSubjects(Subjects subjects);
+    Subjects saveOrUpdateSubjects(Subjects subject);
     void deleteSubjectById(String id);
 }

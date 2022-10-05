@@ -29,8 +29,8 @@ public class SubjectRestController {
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<?> saveOrUpdateSubjects(@RequestBody Subjects subjects) {
-        subjectService.saveOrUpdateSubjects(subjects);
+    public ResponseEntity<?> saveOrUpdateSubjects(@RequestBody Subjects subject) {
+        subjectService.saveOrUpdateSubjects(subject);
         return new ResponseEntity("Subject Added to respective student no", HttpStatus.OK);
     }
 
