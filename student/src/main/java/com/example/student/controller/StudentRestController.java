@@ -2,23 +2,33 @@ package com.example.student.controller;
 
 import com.example.student.entities.Student;
 import com.example.student.service.StudentService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-
-@RequiredArgsConstructor
 @RestController
 
 public class StudentRestController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     static final String SECOND_SERVICE_URL ="http://localhost:8080/";
+
+    @Bean
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+    private final RestTemplate restTemplate;
+
+    public StudentRestController(StudentService studentService, RestTemplate restTemplate) {
+        this.studentService = studentService;
+        this.restTemplate = restTemplate;
+    }
+
     @GetMapping(value = "/")
     public List<Student> getAllStudents() {
         return studentService.findAll();
