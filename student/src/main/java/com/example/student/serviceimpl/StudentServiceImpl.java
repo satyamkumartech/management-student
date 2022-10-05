@@ -21,27 +21,20 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAll() {
         return studentRepository.findAll();
     }
-    public Student findByMaximumMarks(int totalMarks) {
-        return studentRepository.findHighestMarks(totalMarks);
+    @Override
+    public Student findTopBytotalMarks(int totalMarks) {
+        return studentRepository.findTopBytotalMarks(totalMarks);
     }
-
     @Override
     public Student saveOrUpdateStudent(Student student) {
         return studentRepository.save(student);
     }
-
     @Override
     public void deleteStudentById(String id) {
         studentRepository.deleteById(id);
     }
-
     @Override
     public Student findByStudentNumber(int studentNumber) {
         return studentRepository.findByStudentNumber(studentNumber);
-    }
-
-    @Override
-    public List<Student> findByYear(int yearOfStudying) {
-        return studentRepository.findByYear(yearOfStudying);
     }
 }

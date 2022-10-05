@@ -16,17 +16,17 @@ public class StudentRestController {
 
     private final StudentService studentService;
 
-    static final String SECOND_SERVICE_URL ="http://localhost:8080/";
+    //static final String SECOND_SERVICE_URL ="http://localhost:8080/";
 
-    @Bean
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
-    }
-    private final RestTemplate restTemplate;
+    //@Bean
+    //public RestTemplate getRestTemplate() {
+    //    return new RestTemplate();
+    //}
+    //private final RestTemplate restTemplate;
 
-    public StudentRestController(StudentService studentService, RestTemplate restTemplate) {
+    public StudentRestController(StudentService studentService) {
         this.studentService = studentService;
-        this.restTemplate = restTemplate;
+        //this.restTemplate = restTemplate;
     }
 
     @GetMapping(value = "/")
@@ -36,7 +36,7 @@ public class StudentRestController {
 
     @GetMapping(value = "/highestMarks")
     public Student getStudentByMarks(int totalMarks) {
-        return studentService.findByMaximumMarks(totalMarks);
+        return studentService.findTopBytotalMarks(totalMarks);
     }
 
     @GetMapping(value = "/byStudentNumber/{studentNumber}")

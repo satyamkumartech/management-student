@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface StudentService {
     List<Student> findAll();
-    Student findByMaximumMarks(int totalMarks);
+    Student findTopBytotalMarks(int totalMarks);
     Student saveOrUpdateStudent(Student student);
     void deleteStudentById(String id);
     Student findByStudentNumber(int studentNumber);
-    List<Student> findByYear(int yearOfStudying);
+    //List<Student> findByYear(int yearOfStudying);
 }

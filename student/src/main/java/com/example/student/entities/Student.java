@@ -24,12 +24,8 @@ public class Student {
     public enum gender {
         M, F
     }
-    public enum yearOfStudying {
-        FIRST, SECOND, THIRD, FOURTH
-    }
 
     public Student() {
-
     }
 
     public Student(String id, int studentNumber, String name, String gender, String passStatus, int totalMarks, int yearOfStudying) {
