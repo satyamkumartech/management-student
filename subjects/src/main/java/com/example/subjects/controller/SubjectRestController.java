@@ -12,8 +12,11 @@ import java.util.List;
 @RestController
 public class SubjectRestController {
 
-    @Autowired
-    public SubjectService subjectService;
+    public final SubjectService subjectService;
+
+    public SubjectRestController(SubjectService subjectService) {
+        this.subjectService = subjectService;
+    }
 
     @GetMapping(value = "/")
     public List<Subjects> getAllSubjects() {
@@ -29,5 +32,11 @@ public class SubjectRestController {
     public ResponseEntity<?> saveOrUpdateSubjects(@RequestBody Subjects subjects) {
         subjectService.saveOrUpdateSubjects(subjects);
         return new ResponseEntity("Subject Added to respective student no", HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/delete/{studentNumber}")
+    public ResponseEntity<?> deleteSubjectByStudentNumber(@PathVariable int studentNumber) {
+        subjectService.deleteSubjectById(subjectService.findByStudentNumber(studentNumber).getId());
+        return new ResponseEntity("Subject Deleted corresponding to student",HttpStatus.OK);
     }
 }

@@ -1,13 +1,9 @@
 package com.example.student.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
-@Setter
-@Getter
+@Table(name = "student")
 public class Student {
     @Id
     @Column(name = "id")
@@ -27,10 +23,10 @@ public class Student {
     private int yearOfStudying;
 
     public enum gender {
-        M, F;
+        M, F
     }
     public enum yearOfStudying {
-        FIRST, SECOND, THIRD, FOURTH;
+        FIRST, SECOND, THIRD, FOURTH
     }
 
     public Student() {
@@ -44,6 +40,62 @@ public class Student {
         this.gender = gender;
         this.passStatus = passStatus;
         this.totalMarks = totalMarks;
+        this.yearOfStudying = yearOfStudying;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPassStatus() {
+        return passStatus;
+    }
+
+    public void setPassStatus(String passStatus) {
+        this.passStatus = passStatus;
+    }
+
+    public int getTotalMarks() {
+        return totalMarks;
+    }
+
+    public void setTotalMarks(int totalMarks) {
+        this.totalMarks = totalMarks;
+    }
+
+    public int getYearOfStudying() {
+        return yearOfStudying;
+    }
+
+    public void setYearOfStudying(int yearOfStudying) {
         this.yearOfStudying = yearOfStudying;
     }
 }

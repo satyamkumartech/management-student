@@ -3,7 +3,6 @@ package com.example.student.serviceimpl;
 import com.example.student.entities.Student;
 import com.example.student.repository.StudentRepository;
 import com.example.student.service.StudentService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +11,11 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
+
+    public StudentServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     @Override
     public List<Student> findAll() {
@@ -30,7 +32,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void deleteStudentById(String id) {
-
+        studentRepository.deleteById(id);
     }
 
     @Override

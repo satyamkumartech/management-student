@@ -11,11 +11,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-@NoArgsConstructor
 public class SubjectServiceImpl implements SubjectService {
-    @Autowired
-    private SubjectRepository subjectRepository;
+
+    private final SubjectRepository subjectRepository;
+
+    public SubjectServiceImpl(SubjectRepository subjectRepository) {
+        this.subjectRepository = subjectRepository;
+    }
+
+
     @Override
     public List<Subjects> findAllMarks() {
         return subjectRepository.findAll();
@@ -29,5 +33,10 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public Subjects saveOrUpdateSubjects(Subjects subject) {
         return subjectRepository.save(subject);
+    }
+
+    @Override
+    public void deleteSubjectById(String id) {
+        subjectRepository.deleteById(id);
     }
 }

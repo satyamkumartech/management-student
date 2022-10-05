@@ -10,4 +10,5 @@ public interface SubjectService {
     Subjects findByStudentNumber(int studentNumber);
 
     Subjects saveOrUpdateSubjects(Subjects subjects);
+    void deleteSubjectById(String id);
 }
