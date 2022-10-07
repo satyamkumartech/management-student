@@ -22,7 +22,53 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET Subject",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:35:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"A\",\n        \"studentNumber\": 1059,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"C\",\n        \"studentNumber\": 1057,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"D\",\n        \"studentNumber\": 1053,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"B\",\n        \"studentNumber\": 1055,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "SAVE to Subject",
@@ -50,7 +96,62 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "SAVE to Subject",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"AB\",\r\n        \"studentNumber\": 1049,\r\n        \"physicsoral\": 98,\r\n        \"chemistryoral\": 23,\r\n        \"physicspractical\": 23,\r\n        \"chemistrypractical\": 24,\r\n        \"language\": 78,\r\n        \"maths\": 89,\r\n        \"computersc\": 67\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:37:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Subject Added to respective student no"
+				}
+			]
 		},
 		{
 			"name": "GET By Student Number Subject",
@@ -70,7 +171,54 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET By Student Number Subject",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/byStudentNumber/1055",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"byStudentNumber",
+								"1055"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:35:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"D\",\n    \"studentNumber\": 1055,\n    \"name\": \"Ankit\",\n    \"gender\": \"M\",\n    \"passStatus\": \"PASS\",\n    \"totalMarks\": 339,\n    \"yearOfStudying\": 1\n}"
+				}
+			]
 		},
 		{
 			"name": "Deleting By Student Number Subject",
@@ -109,7 +257,53 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "GET Student",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:35:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"A\",\n        \"studentNumber\": 1059,\n        \"name\": \"Ismail Khan\",\n        \"gender\": \"M\",\n        \"passStatus\": \"PASS\",\n        \"totalMarks\": 336,\n        \"yearOfStudying\": 1\n    },\n    {\n        \"id\": \"B\",\n        \"studentNumber\": 1053,\n        \"name\": \"Ankit\",\n        \"gender\": \"M\",\n        \"passStatus\": \"PASS\",\n        \"totalMarks\": 380,\n        \"yearOfStudying\": 1\n    },\n    {\n        \"id\": \"C\",\n        \"studentNumber\": 1057,\n        \"name\": \"Satyam\",\n        \"gender\": \"M\",\n        \"passStatus\": \"PASS\",\n        \"totalMarks\": 350,\n        \"yearOfStudying\": 1\n    },\n    {\n        \"id\": \"D\",\n        \"studentNumber\": 1055,\n        \"name\": \"Ankit\",\n        \"gender\": \"M\",\n        \"passStatus\": \"PASS\",\n        \"totalMarks\": 339,\n        \"yearOfStudying\": 1\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "POST to STUDENT",
@@ -137,7 +331,62 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "POST to STUDENT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"AB\",\r\n        \"studentNumber\": 1049,\r\n        \"name\": \"Satyam\",\r\n        \"gender\": \"M\",\r\n        \"passStatus\": \"FAIL\",\r\n        \"totalMarks\": 100,\r\n        \"yearOfStudying\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "13"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:38:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Student Added"
+				}
+			]
 		},
 		{
 			"name": "delete from Student",
@@ -176,7 +425,118 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "FINDBYTOP",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/highestMarks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"highestMarks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:38:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"B\",\n    \"studentNumber\": 1053,\n    \"name\": \"Ankit\",\n    \"gender\": \"M\",\n    \"passStatus\": \"PASS\",\n    \"totalMarks\": 380,\n    \"yearOfStudying\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Find Subject From Student Using RestController",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/findsubject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"findsubject"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find Subject From Student Using RestController",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/findsubject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"findsubject"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Oct 2022 13:33:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"A\",\n        \"studentNumber\": 1059,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"C\",\n        \"studentNumber\": 1057,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"D\",\n        \"studentNumber\": 1053,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    },\n    {\n        \"id\": \"B\",\n        \"studentNumber\": 1055,\n        \"physicsoral\": 98,\n        \"chemistryoral\": 23,\n        \"physicspractical\": 23,\n        \"chemistrypractical\": 24,\n        \"language\": 78,\n        \"maths\": 89,\n        \"computersc\": 67\n    }\n]"
+				}
+			]
 		}
 	]
 }
