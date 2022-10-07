@@ -10,7 +10,7 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, String> {
     //List<Student> findAllByOrderMarks(int totalMarks);
     //Student findByPassFail(String passStatus);
-    Student findTopBytotalMarks(int totalMarks);
+    Student findFirstByTotalMarks(int totalMarks);
     Student findByStudentNumber(int studentNumber);
     //List<Student> findByYear(int yearOfStudying);
 }

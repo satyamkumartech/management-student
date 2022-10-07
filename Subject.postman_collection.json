@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "d012b6b4-70b7-45f8-bedf-a4b59d1f13c5",
+		"name": "Subject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE to Subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"B\",\r\n        \"studentNumber\": 1055,\r\n        \"physicsoral\": 98,\r\n        \"chemistryoral\": 23,\r\n        \"physicspractical\": 23,\r\n        \"chemistrypractical\": 24,\r\n        \"language\": 78,\r\n        \"maths\": 89,\r\n        \"computersc\": 67\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET By Student Number Subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/byStudentNumber/1055",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"byStudentNumber",
+						"1055"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting By Student Number Subject",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/delete/1055",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"delete",
+						"1055"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST to STUDENT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"D\",\r\n        \"studentNumber\": 1053,\r\n        \"name\": \"Ankit\",\r\n        \"gender\": \"M\",\r\n        \"passStatus\": \"PASS\",\r\n        \"totalMarks\": 336,\r\n        \"yearOfStudying\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete from Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/delete/1053",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"delete",
+						"1053"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FINDBYTOP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/highestMarks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"highestMarks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
