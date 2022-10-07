@@ -24,6 +24,12 @@ public class Student {
     public enum gender {
         M, F
     }
+    public enum passStatus {
+        FAIL,
+        THIRD_DIVSION,
+        SECOND_DIVSION,
+        FIRST_DIVISION
+    }
 
     public Student() {
     }

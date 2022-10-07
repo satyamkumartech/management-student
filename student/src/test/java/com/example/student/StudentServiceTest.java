@@ -18,8 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 public class StudentServiceTest {
@@ -71,13 +70,27 @@ public class StudentServiceTest {
 
         Mockito.when(studentRepository.findAll()).thenReturn(student);
         Mockito.when(studentRepository.findByStudentNumber(student1StudentNumber)).thenReturn(student1);
-        Mockito.when(studentRepository.findTopBytotalMarks(student1totalMarks)).thenReturn(student1);
+        Mockito.when(studentRepository.findFirstByTotalMarks(student1totalMarks)).thenReturn(student1);
         Mockito.when(studentRepository.save(student1)).thenReturn(student1);
     }
 
     @Test
     public void TestFindByStudentNumber() {
         Student found = studentService.findByStudentNumber(student1StudentNumber);
+
+        assertNotNull(found);
+        assertEquals(student1.getStudentNumber(),found.getStudentNumber());
+        assertEquals(student1.getGender(),found.getGender());
+        assertEquals(student1.getId(),found.getId());
+        assertEquals(student1.getName(),found.getName());
+        assertEquals(student1.getPassStatus(),found.getPassStatus());
+        assertEquals(student1.getTotalMarks(),found.getTotalMarks());
+        assertEquals(student1.getYearOfStudying(),found.getYearOfStudying());
+    }
+
+    @Test
+    public void TestfindFirstByTotalMarks() {
+        Student found = studentService.findFirstByTotalMarks(student1totalMarks);
 
         assertNotNull(found);
         assertEquals(student1.getStudentNumber(),found.getStudentNumber());
