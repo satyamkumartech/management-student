@@ -1,54 +1,102 @@
 package com.example.student.entities;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Setter
-@Getter
+@Table(name = "student")
 public class Student {
     @Id
+    @Column(name = "id")
     private String id;
+    @Column(name = "studentNumber")
     private int studentNumber;
+    @Column(name = "name")
     private String name;
+    @Column(name = "gender")
     private String gender;
-    private int totalMarks;
+    @Column(name = "passStatus")
     private String passStatus;
+    @Column(name = "totalMarks")
+    private int totalMarks;
+    @Column(name = "yearOfStudying")
     private int yearOfStudying;
-    private int physicsTheory;
-    private int PhysicsPractical;
-    private int chemistryTheory;
-    private int chemistryPractical;
-    private int maths;
-    private int english;
 
     public enum gender {
-        M, F;
+        M, F
     }
-    public enum yearOfStudying {
-        FIRST, SECOND, THIRD, FOURTH;
+    public enum passStatus {
+        FAIL,
+        THIRD_DIVSION,
+        SECOND_DIVSION,
+        FIRST_DIVISION
     }
 
     public Student() {
-
     }
 
-    public Student(int studentNumber, String name, String gender, int totalMarks, String passStatus, int yearOfStudying, int physicsTheory, int physicsPractical, int chemistryTheory, int chemistryPractical, int maths, int english) {
+    public Student(String id, int studentNumber, String name, String gender, String passStatus, int totalMarks, int yearOfStudying) {
+        this.id = id;
         this.studentNumber = studentNumber;
         this.name = name;
         this.gender = gender;
-        this.totalMarks = totalMarks;
         this.passStatus = passStatus;
+        this.totalMarks = totalMarks;
         this.yearOfStudying = yearOfStudying;
-        this.physicsTheory = physicsTheory;
-        PhysicsPractical = physicsPractical;
-        this.chemistryTheory = chemistryTheory;
-        this.chemistryPractical = chemistryPractical;
-        this.maths = maths;
-        this.english = english;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getStudentNumber() {
+        return studentNumber;
+    }
+
+    public void setStudentNumber(int studentNumber) {
+        this.studentNumber = studentNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPassStatus() {
+        return passStatus;
+    }
+
+    public void setPassStatus(String passStatus) {
+        this.passStatus = passStatus;
+    }
+
+    public int getTotalMarks() {
+        return totalMarks;
+    }
+
+    public void setTotalMarks(int totalMarks) {
+        this.totalMarks = totalMarks;
+    }
+
+    public int getYearOfStudying() {
+        return yearOfStudying;
+    }
+
+    public void setYearOfStudying(int yearOfStudying) {
+        this.yearOfStudying = yearOfStudying;
     }
 }
