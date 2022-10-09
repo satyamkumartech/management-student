@@ -1,19 +1,22 @@
 package com.example.student.controller;
 
-import com.example.student.entities.Student;
-import com.example.student.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
 import java.util.List;
 
-@RestController
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.example.student.entities.Student;
+import com.example.student.service.StudentService;
+
+@RestController
+@RequestMapping("/api/student")
 public class StudentRestController {
 
     private final StudentService studentService;
@@ -23,33 +26,39 @@ public class StudentRestController {
     }
 
     @GetMapping(value = "/")
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
     public List<Student> getAllStudents() {
         return studentService.findAll();
     }
 
     @GetMapping(value = "/highestMarks")
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
     public Student getStudentByMarks(int totalMarks) {
         return studentService.findFirstByTotalMarks(totalMarks);
     }
 
     @GetMapping(value = "/byStudentNumber/{studentNumber}")
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
     public Student getStudentByStudentNumber(@PathVariable("studentNumber")int studentNumber){
         return studentService.findByStudentNumber(studentNumber);
     }
 
     @PostMapping(value = "/save")
-    public ResponseEntity<?> saveOrUpdateStudent(@RequestBody Student student) {
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
+    public ResponseEntity<String> saveOrUpdateStudent(@RequestBody Student student) {
         studentService.saveOrUpdateStudent(student);
-        return new ResponseEntity("Student Added", HttpStatus.OK);
+        return ResponseEntity.ok("Student Added");
     }
 
     @DeleteMapping(value = "/delete/{studentNumber}")
-    public ResponseEntity<?> deleteStudentByStudentNumber(@PathVariable int studentNumber) {
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
+    public ResponseEntity<String> deleteStudentByStudentNumber(@PathVariable int studentNumber) {
         studentService.deleteStudentById(studentService.findByStudentNumber(studentNumber).getId());
-        return new ResponseEntity("Student deleted",HttpStatus.OK);
+        return ResponseEntity.ok("Student deleted");
     }
 
     @GetMapping(value = "/findsubject")
+    @PreAuthorize("hasRole('ROLE_STUDENT') or hasRole('ROLE_ADMINISTRATOR')")
     public List fetchAllSubject() {
         return studentService.findSubject();
     }

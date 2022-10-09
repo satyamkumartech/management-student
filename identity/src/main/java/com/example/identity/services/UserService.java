@@ -1,28 +1,25 @@
 package com.example.identity.services;
 
-import com.example.identity.entities.User;
-import com.example.identity.models.StudentUserDetails;
-import com.example.identity.repository.UserRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.example.identity.entities.User;
+import com.example.identity.entities.UserDto;
+import com.example.identity.repository.UserRepository;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    ModelMapper modelMapper;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = this.userRepository.findByUsername(username);
-
-        return user.map(StudentUserDetails::new).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
+    public UserDto loadUserByUsername(String username) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User doesn't exists"));
+        return modelMapper.map(user, UserDto.class);
     }
 }
